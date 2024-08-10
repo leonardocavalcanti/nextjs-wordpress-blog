@@ -31,3 +31,11 @@ body {
     text-wrap: balance;
   }
 }
+
+input[type="text"] {
+  @apply p-4 w-full rounded-lg opacity-50 bg-transparent border border-solid border-gray-400 focus:opacity-100 focus:border-white focus:outline-none;
+}
+
+.btn-outline {
+  @apply bg-transparent border border-solid border-gray-400 text-gray-400 p-4 w-fit rounded-lg hover:border-white hover:text-white;
+}
