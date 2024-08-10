@@ -2,8 +2,8 @@ import { getPosts } from "@/lib/api";
 import PostPreview from "./PostPreview";
 import Pagination from "./Pagination";
 
-export default async function PostsList({ page, search }: { page: number, search?: string }) {
-  const posts = await getPosts(page, search);
+export default async function PostsList({ page, search, category, tag, author }: { page: number, search?: string, category?: number, tag?: number, author?: number }) {
+  const posts = await getPosts(page, search, category, tag, author);
 
   if (!posts) {
     return (

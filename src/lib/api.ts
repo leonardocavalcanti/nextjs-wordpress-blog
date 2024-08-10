@@ -1,3 +1,4 @@
+import { Category } from "@/interfaces/Category";
 import { Media } from "@/interfaces/Media";
 import { Post } from "@/interfaces/Post";
 import { User } from "@/interfaces/User";
@@ -58,11 +59,28 @@ type PostsResponse = {
   totalPages: number;
 };
 
-export async function getPosts(page: number = 1, search?: string): Promise<PostsResponse | null> {
-  return apiFetch<{data:Post[]} & {
-    total: number;
-    totalPages: number;
-  }>(`/posts?page=${page}&search=${search || ""}`);
+export async function getPosts(page: number = 1, search?: string, category?: number, tag?: number, author?: number): Promise<PostsResponse | null> {
+  const params = new URLSearchParams();
+
+  params.set("page", page.toString());
+
+  if (search) {
+    params.set("search", search);
+  }
+
+  if (category) {
+    params.set("categories", category.toString());
+  }
+
+  if (tag) {
+    params.set("tags", tag.toString());
+  }
+
+  if (author) {
+    params.set("author", author.toString());
+  }
+
+  return apiFetch<PostsResponse>(`/posts?${params}`);
 }
 
 export async function getPostMedia(id: number) {
@@ -75,4 +93,12 @@ export async function getPost(id: number) {
 
 export async function getUser(id: number) {
   return apiFetch<User>(`/users/${id}`);
+}
+
+export async function getCategory(id: number) {
+  return apiFetch<Category>(`/categories/${id}`);
+}
+
+export async function getTag(id: number) {
+  return apiFetch<Category>(`/tags/${id}`);
 }

@@ -10,6 +10,8 @@ export interface Post {
   content: {
     rendered: string;
   };
+  categories: number[];
+  tags: number[];
   date: string;
   featured_media: number;
 }
