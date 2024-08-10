@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 📍 Overview
 
-## Getting Started
+The nextjs-wordpress-blog project is a JavaScript application built with the Next.js framework and TypeScript, and it is configured with various tools for professional development.
 
-First, run the development server:
+This includes Tailwind CSS and PostCSS for styling and cross-browser compatibility.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The main application is a blog that fetches data from a WordPress API and displays it in a modern and responsive layout.
+
+Next.js SSR (Server-Side Rendering) is used to improve SEO and performance.
+
+Designs are simple and clean, with a focus on readability and user experience.
+
+All WordPress API requests are centralized in the `@/lib/api.ts` file, and the application is organized into components and pages.
+
+Post, User, and Media interfaces are defined in the `@/interfaces` folder, containing only the necessary fields for the application.
+
+---
+
+## 🚀 Getting Started
+
+**_Dependencies_**
+
+Please ensure you have the following dependencies installed on your system:
+
+`- ℹ️ Node.js (20.x)`
+
+### 🔧 Installation
+
+1. Clone the nextjs-wordpress-blog repository:
+
+```sh
+git clone https://github.com/leonardocavalcanti/nextjs-wordpress-blog
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Change to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+cd nextjs-wordpress-blog
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Copy the `.env.example` file to `.env` and update the variables:
 
-## Learn More
+```sh
+cp .env.example .env
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Install the dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 🤖 Running nextjs-wordpress-blog
 
-## Deploy on Vercel
+```sh
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can now access nextjs-wordpress-blog at http://localhost:3000
