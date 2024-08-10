@@ -15,7 +15,7 @@ export default function SearchInput({ currentSearch }: { currentSearch?: string 
             return;
         }
         
-        router.push(`/search/1?search=${search}`);
+        router.push(`/page/1?search=${search}`);
     };
 
     const handleClearSearch = () => {

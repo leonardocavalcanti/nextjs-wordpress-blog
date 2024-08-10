@@ -28,28 +28,37 @@ async function apiFetch<T>(path: string, options?: RequestInit) {
     } catch {
       error = res.statusText;
     }
-
-    throw new Error(error);
   }
 
   // Check if response headers contain pagination data
   const total = res.headers.get("X-WP-Total");
   const totalPages = res.headers.get("X-WP-TotalPages");
 
-  if (total && totalPages) {
+  try {
     const data = await res.json();
 
-    return {
-      data,
-      total: parseInt(total, 10),
-      totalPages: parseInt(totalPages, 10),
-    } as T;
-  }
+    if (total && totalPages) {
 
-  return res.json() as Promise<T>;
+      return {
+        data,
+        total: parseInt(total, 10),
+        totalPages: parseInt(totalPages, 10),
+      } as T;
+    }
+
+    return data as Promise<T>;
+  } catch {
+    return null;
+  }
 }
 
-export async function getPosts(page: number = 1, search?: string) {
+type PostsResponse = {
+  data: Post[];
+  total: number;
+  totalPages: number;
+};
+
+export async function getPosts(page: number = 1, search?: string): Promise<PostsResponse | null> {
   return apiFetch<{data:Post[]} & {
     total: number;
     totalPages: number;
