@@ -8,9 +8,7 @@ export default async function PostTags({ tags }: { tags: number[] }) {
             Tag:
             {tagNames.map((tag) => tag && (
                 <a href={`/page/1?tag=${tag.id}`} key={tag.id} className="underline">
-                    <span key={tag?.id} className="text-xs bg-gray-200 text-gray-800 rounded-full px-2 py-1 m-1">
-                        {tag?.name}
-                    </span>
+                    <span key={tag?.id} className="text-xs bg-gray-200 text-gray-800 rounded-full px-2 py-1 m-1" dangerouslySetInnerHTML={{ __html: tag?.name }} />
                 </a>
             ))}
         </div>

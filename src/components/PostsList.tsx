@@ -25,7 +25,7 @@ export default async function PostsList({ page, search, category, tag, author }:
       {posts.data.map((post) => (
         <PostPreview key={post.id} post={post} />
       ))}
-      <Pagination page={page} totalPages={posts.totalPages} search={search} />
+      <Pagination page={page} totalPages={posts.totalPages} search={search} category={category} tag={tag} author={author} />
     </div>
   );
 }
