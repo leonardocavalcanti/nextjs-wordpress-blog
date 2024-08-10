@@ -4,6 +4,10 @@ import Image from "next/image";
 export default async function PostAuthor({ userId, date }: { userId: number, date: string }) {
     const user = await getUser(userId);
 
+    if (!user) {
+        return null;
+    }
+
     return (
         <div className="flex gap-2 items-center">
             <Image src={user.avatar_urls[48]} alt={user.name} className="w-8 h-8 rounded-full" width={32} height={32} />
