@@ -1,6 +1,7 @@
 import { Category } from "@/interfaces/Category";
 import { Media } from "@/interfaces/Media";
 import { Post } from "@/interfaces/Post";
+import { Tag } from "@/interfaces/Tag";
 import { User } from "@/interfaces/User";
 
 const apiUrl = process.env.WORDPRESS_API_URL;
@@ -100,5 +101,5 @@ export async function getCategory(id: number) {
 }
 
 export async function getTag(id: number) {
-  return apiFetch<Category>(`/tags/${id}`);
+  return apiFetch<Tag>(`/tags/${id}`);
 }
